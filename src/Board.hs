@@ -6,6 +6,7 @@ module Board
 , checkValidMove
 , hasPlayerAtThisPosWon
 , makeTurn
+, initBoard
 ) where
 
     data TurnType = Zero | Cross deriving (Show, Eq)
@@ -13,6 +14,8 @@ module Board
     data Cell = TurnType TurnType | Empty deriving (Show, Eq)
 
     type Board = [[Cell]]
+
+    initBoard = [[Empty, Empty,Empty], [Empty, Empty,Empty], [Empty, Empty,Empty]]
 
     getCellAtPos :: Board -> (Int, Int) -> Cell
     getCellAtPos b (x,y) = (b!!x)!!y
@@ -28,7 +31,7 @@ module Board
     checkValidMove b (x,y) = (checkBounds (x,y)) && (isEmptyCell $ getCellAtPos b (x,y))
 
     makeTurn :: Board -> (Int, Int) -> TurnType -> Board
-    makeTurn b (x,y) t =
+    makeTurn b (x,y) t
       | checkValidMove b (x, y) =
           if x==0
           then [makeTurnHelper (b!!0) y t] ++ [b!!1] ++ [b!!2]

@@ -6,5 +6,5 @@ import Game
 
 main :: IO ()
 main = do
-  putStrLn "Hello, Haskell!"
-  startGame initBoard HumanPlayer HumanPlayer
+  putStrLn "Play Tic-Tac-Toe!"
+  startGame initBoard HumanPlayer HumanPlayer True

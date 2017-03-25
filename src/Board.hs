@@ -25,7 +25,7 @@ module Board
     isEmptyCell _ = True
 
     checkBounds :: (Int, Int) -> Bool
-    checkBounds (x,y) = (x < 3 &&  x > -1 ) && (y < 3 && y > -1)    -- negetive cases?
+    checkBounds (x,y) = (x < 3 && x > -1 ) && (y < 3 && y > -1)
 
     checkValidMove :: Board -> (Int, Int) -> Bool
     checkValidMove b (x,y) = (checkBounds (x,y)) && (isEmptyCell $ getCellAtPos b (x,y))
@@ -60,7 +60,7 @@ module Board
         xdist =
                 if (isDiag)
                     then 1
-                    else if (not isVert)
+                    else if (isVert)
                             then 0
                             else 1
         ydist =

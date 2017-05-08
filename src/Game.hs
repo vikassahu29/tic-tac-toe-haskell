@@ -14,7 +14,9 @@ startGame board a b chance = do
   let newBoard = makeTurn board turn cType
   if hasPlayerAtThisPosWon newBoard turn
     then putStrLn $ "Player " ++ (show cType) ++ " Wins"
-    else startGame newBoard a b (not chance)
+    else if newBoard==board
+        then startGame newBoard a b chance
+        else startGame newBoard a b (not chance)
   where selectPlayer a _ True = a
         selectPlayer _ b False = b
         selectTurn True = Zero

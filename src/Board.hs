@@ -22,7 +22,7 @@ module Board
 
     isEmptyCell :: Cell -> Bool
     isEmptyCell Empty = True
-    isEmptyCell _ = True
+    isEmptyCell _ = False
 
     checkBounds :: (Int, Int) -> Bool
     checkBounds (x,y) = (x < 3 && x > -1 ) && (y < 3 && y > -1)
